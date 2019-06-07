@@ -2,7 +2,7 @@
 
 Pop-up Japanese translation under a cursor.
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.gif)
 
 ## Requirements
 
