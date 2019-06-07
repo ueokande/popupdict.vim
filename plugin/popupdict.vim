@@ -3,21 +3,24 @@ set cpoptions&vim
 
 scriptencoding utf-8
 
-" if exists('g:loaded_popupdict')
-"     finish
-" endif
-" let g:loaded_popupdict = 1
+if exists('g:loaded_popupdict')
+    finish
+endif
+let g:loaded_popupdict = 1
 
-" let s:lines = readfile(expand('plugin/dict.json'))
-let s:lines = readfile(expand('plugin/dict.json'))
+let s:lines = readfile(expand("<sfile>:h") . "/dict.json")
 let s:dictionary = json_decode(s:lines[0])
-
-let s:lines = readfile(expand('plugin/verbs.json'))
+let s:lines = readfile(expand("<sfile>:h") . "/verbs.json")
 let s:verbs = json_decode(s:lines[0])
 
 let s:popup_width = 60
 
+let g:popupdict_enabled = 1
+
 function! s:show_popup_dict()
+  if !g:popupdict_enabled
+    return
+  endif
   popupc
 
   let en = tolower(expand("<cword>"))
