@@ -8,14 +8,13 @@ if exists('g:loaded_popupdict')
 endif
 let g:loaded_popupdict = 1
 
+let g:popup_width = 60
+let g:popupdict_enabled = 1
+
 let s:lines = readfile(expand("<sfile>:h") . "/dict.json")
 let s:dictionary = json_decode(s:lines[0])
 let s:lines = readfile(expand("<sfile>:h") . "/verbs.json")
 let s:verbs = json_decode(s:lines[0])
-
-let s:popup_width = 60
-
-let g:popupdict_enabled = 1
 
 function! s:show_popup_dict()
   if !g:popupdict_enabled
@@ -36,15 +35,15 @@ function! s:show_popup_dict()
 
   let col = getpos('.')[2]
   let winw = winwidth(0)
-  if col + s:popup_width + 1 > winw
-    let col = winw - s:popup_width - 1
+  if col + g:popup_width + 1 > winw
+    let col = winw - g:popup_width - 1
   endif
 
   let winid = popup_create(ja, {
         \ "line": "cursor+1",
         \ "col": col,
         \ "pos":"topleft",
-        \ "maxwidth": s:popup_width,
+        \ "maxwidth": g:popup_width,
         \ "border": [1, 1, 1, 1],
         \ "moved": "word",
         \ })

@@ -10,9 +10,10 @@ Pop-up Japanese translation under a cursor.
 
 ## Variables
 
-| name              | description                     |
-|---                |---                              |
-| `g:popup_enabled` | `1` to enable pop-up dictionary |
+| name              | default | description                     |
+|---                |---      |---                              |
+| `g:popup_enabled` | `1`     | `1` to enable pop-up dictionary |
+| `g:popup_width`   | `60`    | width of a pop-up               |
 
 ## Dictionary sources
 
