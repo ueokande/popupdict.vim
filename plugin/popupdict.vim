@@ -3,9 +3,9 @@ set cpoptions&vim
 
 scriptencoding utf-8
 
-" if exists('g:loaded_popupdict')
-"     finish
-" endif
+if exists('g:loaded_popupdict')
+    finish
+endif
 let g:loaded_popupdict = 1
 
 let g:popup_width = 60
